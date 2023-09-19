@@ -50,8 +50,8 @@ const Post = async ({ params }: Props) => {
         height={height}
       />
       <div className="prose">
-        
-        <MDXRemote source={body} />
+{/*         
+        <MDXRemote source={body} /> */}
       </div>
     </div>
   );

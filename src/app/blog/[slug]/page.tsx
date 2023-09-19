@@ -50,7 +50,7 @@ const Post = async ({ params }: Props) => {
         height={height}
       />
       <div className="prose">
-        
+        {/* @ts-expect-error Server Component */}
         <MDXRemote source={body} />
       </div>
     </div>

@@ -5,6 +5,7 @@
  import { notFound } from "next/navigation";
  import Image from "next/image";
  import ButtonBack from "@/components/ButtonBack";
+ import ReactMarkdown from 'react-markdown';
 
  const getData = async (slug = "") => {
    const path = "/posts";
@@ -35,6 +36,8 @@
    const { title, description, body, createdAt, image } = post.attributes;
    const { url, width, height } = image.data.attributes.formats.medium;
 
+   console.log(typeof body);
+   
  
    return (
      <div className="space-y-8 px-8">
@@ -52,7 +55,8 @@
          height={height}
        />
        <div className="prose">    
-       {body} 
+       
+       <ReactMarkdown>{body}</ReactMarkdown>
          {/* <MDXRemote {...compiledSource} /> */}
        </div>
      </div>

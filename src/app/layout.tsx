@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={nunito.className}>
+      <body className={`${nunito.className} bg-white dark:bg-gray-800`}>
       <Header/>
         <main className="container mx-auto max-w-2xl my-8">          
         {children}

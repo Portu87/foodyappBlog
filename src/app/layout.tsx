@@ -1,3 +1,4 @@
+
 import './globals.css'
 import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
@@ -15,9 +16,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en">
-      <body className={`${nunito.className} bg-white dark:bg-gray-800`}>
+      <body className={`${nunito.className} bg-white dark:bg-gray-800 `}>
       <Header/>
         <main className="container mx-auto max-w-2xl my-8">          
         {children}

@@ -35,12 +35,10 @@
 
    const { title, description, body, createdAt, image } = post.attributes;
    const { url, width, height } = image.data.attributes.formats.medium;
-
-   console.log(typeof body);
-   
+  
  
    return (
-     <div className="space-y-8 px-8">
+     <div className="space-y-8 px-8 text-black dark:text-white">
        <div className="ml-8">
        <ButtonBack children="Volver"/>
        </div>
@@ -54,10 +52,10 @@
          width={width}
          height={height}
        />
-       <div className="prose">    
+       <div className="prose text-black dark:text-white">    
        
        <ReactMarkdown>{body}</ReactMarkdown>
-         {/* <MDXRemote {...compiledSource} /> */}
+     
        </div>
      </div>
    );

@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        lightModeText: '#333333', // Cambia esto al color que desees para el modo de luz
+        darkModeText: '#FFFFFF',   // Cambia esto al color que desees para el modo oscuro
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

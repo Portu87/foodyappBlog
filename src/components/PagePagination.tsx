@@ -1,6 +1,8 @@
+import { cn } from "@/helpers/classnames";
 import Link from "next/link";
 
 interface Props {
+  path: string;
   pagination: {
     page: number;
     pageSize: number;
@@ -8,7 +10,7 @@ interface Props {
     total: number;
   };
 }
-const PagePagination = ({ pagination }: Props) => {
+const PagePagination = ({ pagination, path }: Props) => {
   const { page, pageCount, pageSize, total } = pagination;
   const classNumber =
     "flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white";
@@ -26,11 +28,11 @@ const PagePagination = ({ pagination }: Props) => {
         <li>
           <Link
             href={
-                page === 1 ? `/blog?page=${page}` : `/blog?page=${page - 1}`
+                page === 1 ? `/${path}?page=${page}` : `/blog?page=${page - 1}`
             }
-            className={
-                `${classPrevius} ${page === 1 ? "bg-gray-300 opacity-30 pointer-events-none hover:none" : ""}}`
-            }
+            className={cn(classPrevius,{
+                "bg-gray-300 opacity-30 pointer-events-none hover:none": page === 1
+            })}
           >
             <span className="sr-only">Anterior</span>
             <svg
@@ -54,7 +56,7 @@ const PagePagination = ({ pagination }: Props) => {
         {Array.from({ length: pageCount }, (_, i) => i + 1).map((number) => (
           <li>
             <Link
-              href={`/blog?page=${number}`}
+              href={`/${path}?page=${number}`}
               className={`${number === page ? classNumberActive : classNumber}`}
             >
               {number}
@@ -65,12 +67,12 @@ const PagePagination = ({ pagination }: Props) => {
           <Link
             href={
                 page === pageCount
-                ? `/blog?page=${page}`
-                : `/blog?page=${page + 1}`
+                ? `/${path}?page=${page}`
+                : `/${path}?page=${page + 1}`
             }
-            className={
-                `${classNext} ${page === pageCount ? "bg-gray-300 opacity-30 pointer-events-none hover:none" : ""}}`
-            }
+            className={cn(classNext,{
+                "bg-gray-300 opacity-30 pointer-events-none hover:none": page === pageCount
+              })}
           >
             <span className="sr-only">Siguiente</span>
             <svg

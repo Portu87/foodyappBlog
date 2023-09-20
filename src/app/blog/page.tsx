@@ -48,7 +48,7 @@ const Blog = async ({searchParams}:Props) => {
         ))}
       </section>
       <div className="flex items-center justify-center ">
-      <PagePagination pagination={pagination}/>
+      <PagePagination pagination={pagination}  path="blog"/>
       </div>
     </div>
   );
